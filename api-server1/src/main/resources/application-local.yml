@@ -15,10 +15,10 @@ spring:
     restart.enabled: true
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:postgresql://localhost:5432/test
+    url: ENC(OqippfD2EB57R9jHSBlZGC23cykxgPFAJtIeV/76a1PUcBz2WKSKvuTfkkgxqSruIBf+xP2xMuI=)
     hikari:
-      username: user
-      password: 1234
+      username: ENC(6lyo3xm5dnzkTjkgDG8Y4g==)
+      password: ENC(VZaZ6pFokt3oKbENVbmOSg==)
       connectionTimeout: 10000
       maximum-pool-size: 15
       max-lifetime: 600000
@@ -43,7 +43,7 @@ jasypt:
 # Redis
 data:
   redis:
-    host: localhost   # Redis 서버 주소
+    host: ENC(NzWOHKVHRFRYb8Zlie1+9uVZyuAZ47Fv)   # Redis 서버 주소
     port: 6379        # Redis 포트
     password:         # (필요하면 비밀번호 추가)
     timeout: 6000     # 연결 타임아웃 (ms)
