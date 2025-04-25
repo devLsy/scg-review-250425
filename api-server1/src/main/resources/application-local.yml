@@ -1,0 +1,55 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: user
+  devtools:
+    livereload.enabled: true
+    restart.enabled: true
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:postgresql://localhost:5432/test
+    hikari:
+      username: user
+      password: 1234
+      connectionTimeout: 10000
+      maximum-pool-size: 15
+      max-lifetime: 600000
+      readOnly: false
+      connection-test-query: SELECT 1
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+jasypt:
+  encryptor:
+    # JasyptConfig에 정의한 빈 이름
+    bean: jasyptStringEncryptor
+    property:
+      prefix: ENC(
+      suffix: )
+
+# Redis
+data:
+  redis:
+    host: localhost   # Redis 서버 주소
+    port: 6379        # Redis 포트
+    password:         # (필요하면 비밀번호 추가)
+    timeout: 6000     # 연결 타임아웃 (ms)
+    lettuce:
+      pool:
+        max-active: 8  # 최대 활성 연결 수
+        max-idle: 8    # 최대 유휴 연결 수
+        min-idle: 0    # 최소 유휴 연결 수
+        max-wait: -1   # 최대 대기 시간 (무제한)
